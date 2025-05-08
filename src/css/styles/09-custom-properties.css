@@ -1,0 +1,42 @@
+/* CSS 변수 */
+@property --text-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #f0c;
+}
+
+:root {
+  --red: #f00;
+  --green: #0f0;
+  --blue: #00f;
+
+  /* --main-color: var(--blue); */
+}
+
+body {
+  margin: 50px;
+  background: #ffc;
+  /* color: var(--main-color); */
+}
+
+a {
+  --text-color: var(--pink, #f0f);
+  /* border: 1px solid var(--main-color); */
+
+  span {
+    color: var(--text-color);
+  }
+}
+
+h1 {
+  color: var(--text-color);
+  /* box-shadow: 5px 5px 5px 5px var(--main-color); */
+}
+
+p {
+  color: var(--text-color);
+}
+
+div {
+  color: var(--text-color);
+}
