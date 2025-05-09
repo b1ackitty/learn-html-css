@@ -1,0 +1,7 @@
+/* CSS 미디어 쿼리 */
+/* 프린트(인쇄) 스타일 */
+body {
+  margin: 0;
+  color: #000;
+  background: #fff;
+}
