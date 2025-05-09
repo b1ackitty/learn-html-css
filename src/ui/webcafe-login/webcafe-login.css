@@ -1,16 +1,33 @@
 :root {
-  --orange: #ed552f;
+  /* 웹카페 색상 테마 */
+  --white: #fff;
   --black: #181818;
   --gray: #7a7a7a;
-  --yellow: #ffff00;
-  --light-orange: #e8852e;
-  --white: #fff;
+  --orange-100: #e8852e;
+  --orange-200: #ed552f;
+  --yellow: #ff0;
+
+  /* 글자 크기 */
+  --text-13: 0.8125rem;
+  --text-14: 0.875rem;
+  --text-15: 0.9375rem;
+
+  /* 줄 높이 */
+  --leading-base: 1.5;
+
+  /* 여백 및 간격 */
+  --spacing-2: 0.125rem;
+  --spacing-4: 0.25rem;
+  --spacing-6: 0.375rem;
+  --spacing-8: 0.5rem;
+  --spacing-10: 0.625rem;
+  --spacing-12: 0.75rem;
 }
 
 /* 폼 스타일링 */
 body {
   margin: 50px;
-  line-height: 1.5;
+  color: var(--black);
 }
 
 /* 컴포넌트 컨테이너 */
@@ -22,40 +39,146 @@ body {
 
 /* 입력 서식 컴포넌트 디자인 */
 .form-input {
-  font-size: 14px;
+  --input-color: var(--gray);
+
+  font-size: var(--text-14);
   color: var(--black);
+  line-height: var(--leading-base);
+
+  label {
+    display: block;
+    min-width: var(--label-size);
+  }
 
   input {
-    color: var(--gray);
-    border-radius: 5px;
-    border: 1px solid var(--gray);
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid var(--input-color);
   }
 }
 
 /* 버튼 컴포넌트 디자인 */
-.fill-button {
-  color: var(--white);
-  font-size: 13px;
-  background: var(--orange);
-  border-radius: 5px;
-  align-items: center;
+/* 공통 버튼 컴포넌트 스타일 */
+[type='button'],
+[type='submit'],
+[type='reset'] {
   border: 0;
+  padding: 6px 12px;
+  background: transparent;
+  border-radius: 4px;
+  font-size: var(--text-13);
+  line-height: var(--leading-base);
+}
+
+.fill-button {
+  --fill-color: var(--black);
+
+  color: var(--white);
+  background: var(--fill-color);
+  border: 1px solid var(--fill-color);
 }
 
 .outline-button {
-  color: var(--orange);
-  font-size: 13px;
-  background: transparent;
-  border-radius: 5px;
-  border: 2px solid var(--orange);
+  --current-color: var(--orange-200);
+
+  border: 1px solid currentColor;
+  color: var(--current-color);
 }
 
 /* 하이퍼링크 컴포넌트 디자인 */
 .icon-link {
-  font-size: 13px;
-  color: var(--orange);
+  --icon-color: var(--orange-200);
 
-  a {
-    color: var(--black);
+  font-size: var(--text-13);
+
+  span {
+    font-weight: bold;
+    color: var(--icon-color);
+  }
+}
+
+/* 웹카페 로그인 폼 스타일링 */
+.webcafe-login {
+  --headline-color: var(--yellow);
+  --start-color: var(--orange-100);
+  --end-color: var(--orange-200);
+
+  background: var(--end-color) radial-gradient(circle at right top, var(--start-color), var(--end-color));
+  padding: var(--spacing-12);
+  max-width: 50%;
+  min-width: 320px;
+
+  /* 제목 */
+  .headline {
+    font-size: var(--text-15);
+    line-height: var(--leading-base);
+    color: var(--headline-color);
+    margin-bottom: var(--spacing-8);
+  }
+
+  /* 폼 영역, 텍스트 링크 리스트 */
+  form,
+  ul {
+    --bg-color: var(--white);
+
+    background: var(--bg-color);
+  }
+
+  /* 폼 영역 */
+  form {
+    padding: var(--spacing-8);
+
+    @media (width >= 480px) {
+      position: relative;
+    }
+  }
+
+  /* 입력 서식 */
+  .form-input {
+    margin-bottom: var(--spacing-8);
+
+    @media (width >= 480px) {
+      width: calc(100% - 76px);
+
+      label {
+        display: inline-block;
+        width: 56px;
+      }
+
+      input {
+        width: calc(100% - 56px);
+        height: 30px;
+      }
+    }
+  }
+
+  /* 로그인 버튼 */
+  .fill-button {
+    --fill-color: var(--orange-200);
+
+    @media (width >= 480px) {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      height: 68px;
+      width: 68px;
+    }
+  }
+
+  /* 텍스트 링크 리스트 */
+  ul {
+    --border-color: var(--gray);
+
+    padding: var(--spacing-8);
+    display: flow-root;
+    border-top: 1px solid var(--border-color);
+
+    li:first-child {
+      float: left;
+    }
+
+    li:last-child {
+      float: right;
+    }
   }
 }
