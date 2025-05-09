@@ -1,0 +1,61 @@
+:root {
+  --orange: #ed552f;
+  --black: #181818;
+  --gray: #7a7a7a;
+  --yellow: #ffff00;
+  --light-orange: #e8852e;
+  --white: #fff;
+}
+
+/* 폼 스타일링 */
+body {
+  margin: 50px;
+  line-height: 1.5;
+}
+
+/* 컴포넌트 컨테이너 */
+.component-wrapper {
+  > div {
+    margin-block: 1em;
+  }
+}
+
+/* 입력 서식 컴포넌트 디자인 */
+.form-input {
+  font-size: 14px;
+  color: var(--black);
+
+  input {
+    color: var(--gray);
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+  }
+}
+
+/* 버튼 컴포넌트 디자인 */
+.fill-button {
+  color: var(--white);
+  font-size: 13px;
+  background: var(--orange);
+  border-radius: 5px;
+  align-items: center;
+  border: 0;
+}
+
+.outline-button {
+  color: var(--orange);
+  font-size: 13px;
+  background: transparent;
+  border-radius: 5px;
+  border: 2px solid var(--orange);
+}
+
+/* 하이퍼링크 컴포넌트 디자인 */
+.icon-link {
+  font-size: 13px;
+  color: var(--orange);
+
+  a {
+    color: var(--black);
+  }
+}
