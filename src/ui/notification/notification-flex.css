@@ -1,0 +1,59 @@
+/* 알림 Notification */
+:root {
+  --green: #22be61;
+  --gray: #9b9a90;
+  --white: #fff;
+}
+
+body {
+  margin: 50px;
+}
+
+/* 알림 컴포넌트 */
+.notification {
+  --font-color: var(--green);
+  --border-color: var(--gray);
+
+  display: flex;
+  flex-flow: row nowrap;
+  block-size: 5.25rem;
+  inline-size: 100%;
+  padding: 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  align-items: center;
+  column-gap: 1.25rem;
+  min-inline-size: 260px;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  > div {
+    display: flex;
+    flex-flow: row wrap;
+    row-gap: 0.25rem;
+    flex-grow: 1;
+    justify-content: space-between;
+
+    strong {
+      color: var(--font-color);
+      font-size: 1.125rem;
+    }
+
+    time {
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    p {
+      --font-color: var(--gray);
+
+      color: var(--gray);
+      font-size: 0.875rem;
+      inline-size: 100%;
+    }
+  }
+}
