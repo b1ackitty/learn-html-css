@@ -1,0 +1,182 @@
+/* 로그인 폼 스타일링 */
+:root {
+  --white: #fff;
+  --green-100: #03cc5c;
+  --green-200: #1bf008;
+  --green-300: #03cca8;
+
+  --gray-100: #bcc3c7;
+  --gray-200: #9b9a90;
+  --gray-300: #6d7478;
+
+  --start-color: var(--green-200);
+  --end-color: var(--green-300);
+}
+
+/* 컴포넌트 영역의 기본 여백 */
+.component {
+  margin: 50px;
+
+  h1,
+  h2 {
+    margin-block: 10px;
+  }
+}
+
+/* 로고(SVG) */
+/* a 요소를 inline으로 사용하고 싶다면 display: inline-flex;로 변경 */
+.logo {
+  --size: 230px;
+
+  display: inline-flex;
+  inline-size: var(--size);
+}
+
+/* 입력 서식 */
+.form-input {
+  --border-color: var(--gray-200);
+  --size: 32px;
+
+  input {
+    inline-size: 100%;
+    block-size: var(--size);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.2em 0.5em;
+  }
+
+  input:user-invalid + p {
+    visibility: visible;
+  }
+
+  .error-message {
+    font-size: 12px;
+    color: #f00;
+    margin-block-start: 8px;
+    visibility: hidden;
+  }
+}
+
+/* 체크 박스 */
+.bg-icon {
+  input:checked + label {
+    background-image: url(/src/assets/naver/checked.svg);
+  }
+
+  label {
+    block-size: var(--size);
+    align-content: center;
+    /* padding-inline-start: calc(var(--size) + 6px); */
+    /* 첫 줄 들여쓰기 */
+    text-indent: calc(var(--size) + 6px);
+    background: url(/src/assets/naver/unchecked.svg) no-repeat;
+    background-size: var(--size);
+  }
+}
+
+.svg-icon {
+  --accent-color: var(--green-100);
+  --marker-color: var(--white);
+
+  input:checked + label {
+    .area {
+      fill: var(--accent-color);
+    }
+    .border {
+      fill: var(--accent-color);
+    }
+    .marker {
+      fill: var(--marker-color);
+    }
+  }
+
+  label {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    column-gap: 6px;
+  }
+}
+
+.form-checkbox {
+  --size: 24px;
+
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  input {
+    accent-color: var(--green-100);
+    /* opacity: 0; */
+    /* visibility: hidden; */
+    position: absolute;
+    inline-size: var(--size);
+    block-size: var(--size);
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    margin: 0;
+    appearance: none;
+  }
+}
+
+/* 텍스트 링크(새 창) */
+.textlink-new {
+  font-weight: 700;
+}
+
+/* 스위치 */
+.form-switch {
+  --accent-color: var(--green-100);
+  --size: 1em;
+
+  position: relative;
+  display: inline-flex;
+  flex-flow: row nowrap;
+
+  input {
+    position: absolute;
+    inset-block-start: 0;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    margin: 0;
+    inline-size: calc(var(--size) * 2);
+    block-size: var(--size);
+    appearance: none;
+  }
+
+  label {
+    inline-size: calc(var(--size) * 2);
+    text-align: end;
+    align-content: center;
+  }
+
+  input:checked + label::before {
+    content: 'on';
+    color: var(--accent-color);
+  }
+
+  label::before {
+    content: 'off';
+    text-transform: uppercase;
+    color: var(--gray-200);
+    font-weight: 700;
+    font-size: var(--size);
+  }
+}
+
+/* 버튼 */
+.button {
+  --fill-color: var(--green-100);
+  --text-color: var(--white);
+
+  border: 0;
+  inline-size: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+
+  &.button-fill {
+    background: var(--fill-color);
+    color: var(--text-color);
+  }
+}
