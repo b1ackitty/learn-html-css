@@ -5,6 +5,8 @@
   --green-200: #1bf008;
   --green-300: #03cca8;
 
+  --blue-100: #e9f0fd;
+
   --gray-100: #bcc3c7;
   --gray-200: #9b9a90;
   --gray-300: #6d7478;
@@ -26,7 +28,7 @@
 /* 로고(SVG) */
 /* a 요소를 inline으로 사용하고 싶다면 display: inline-flex;로 변경 */
 .logo {
-  --size: 230px;
+  --size: clamp(164px, 71.3%, 230px);
 
   display: inline-flex;
   inline-size: var(--size);
@@ -178,5 +180,81 @@
   &.button-fill {
     background: var(--fill-color);
     color: var(--text-color);
+  }
+}
+
+/* 네이버 로그인 폼 스타일링 */
+.login-container {
+  padding-inline: 1.25rem;
+
+  @media (width > 768px) {
+    inline-size: 500px;
+    margin-inline: auto;
+  }
+
+  .logo {
+    display: flex;
+    margin-inline: auto;
+    margin-block-start: 70px;
+    margin-block-end: 45px;
+
+    @media (width <= 768px) {
+      margin-block-start: 100px;
+      margin-block-end: 50px;
+    }
+  }
+
+  .login-form {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 10px;
+
+    .form-input input {
+      block-size: 48px;
+    }
+
+    .checkbox-wrapper {
+      order: 1;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: end;
+      column-gap: 6px;
+
+      @media (width <= 768px) {
+        .textlink-new,
+        .form-switch {
+          display: none;
+        }
+      }
+
+      .textlink-new {
+        margin-inline-start: auto;
+      }
+    }
+
+    .button {
+      block-size: 52px;
+    }
+  }
+
+  /* 상태 디자인 */
+  :focus {
+    outline: 0 none;
+  }
+
+  .form-input input:focus-visible {
+    border: 1px solid var(--green-100);
+    background: var(--blue-100);
+  }
+
+  .button:focus-visible {
+    box-shadow: 0 0 1px 2px #f00;
+  }
+
+  .checkbox-wrapper *:focus-visible {
+    outline: 2px solid var(--green-100);
+    border-radius: 2px;
+    outline-offset: 2px;
   }
 }
