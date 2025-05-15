@@ -1,0 +1,44 @@
+/* 그리드 테이블 */
+body {
+  margin: 50px;
+  background: var(--black);
+  color: #fff;
+}
+
+.grid-table {
+  /* background: #333; */
+  margin-block: 1.25rem;
+  font-size: 0.875rem;
+  min-inline-size: 530px;
+  padding-inline: 10px;
+  display: grid;
+  grid-template-columns: minmax(max-content, 1fr) minmax(max-content, 3fr) repeat(2, minmax(max-content, 1fr));
+  grid-template-rows: repeat(3, 48px) auto;
+  /* column-gap: 0.75rem; */
+  /* align-items: center; */
+  border-block: 2px solid gray;
+
+  dt,
+  dd,
+  > div {
+    border-block-end: 1px solid gray;
+    align-content: center;
+  }
+
+  dt:last-of-type,
+  > div:nth-last-of-type(2) {
+    border-block-end: 0;
+    align-self: start;
+    margin-block: 10px;
+  }
+
+  > :is(dd, div):last-child {
+    grid-area: 4 / 2 / 5 / span 3;
+    border-block-end: 0;
+
+    span {
+      display: block;
+      margin-block: 10px;
+    }
+  }
+}
