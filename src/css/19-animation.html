@@ -19,5 +19,10 @@
     <!-- Transition 애니메이션 -->
     <button type="button" class="toggle-transition">실행</button>
     <div class="like">CSS 애니메이션(Transition)</div>
+    <script>
+      document.querySelector('.toggle-transition').addEventListener('click', function () {
+        document.querySelector('.like').classList.toggle('transition');
+      });
+    </script>
   </body>
 </html>
