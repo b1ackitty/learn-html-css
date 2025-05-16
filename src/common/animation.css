@@ -111,10 +111,35 @@
 /* Glow 애니메이션 */
 @keyframes glow {
   from {
-    box-shadow: 0 0 5px yellowgreen;
+    border-color: #6f6;
+    box-shadow:
+      0 0 20px rgba(0, 255, 0, 0.6),
+      inset 0 0 10px rgba(0, 255, 0, 0.4),
+      0 2px 0 #000;
   }
 
   to {
-    box-shadow: 0 0 10px yellowgreen;
+    border-color: #393;
+    box-shadow:
+      0 0 5px rgba(0, 255, 0, 0.2),
+      inset 0 0 5px rgba(0, 255, 0, 0.1),
+      0 2px 0 #000;
+  }
+}
+
+/* CSS 변수를 활용한 애니메이션 */
+@property --rotation {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes rotate {
+  from {
+    --rotation: 0deg;
+  }
+
+  to {
+    --rotation: 360deg;
   }
 }

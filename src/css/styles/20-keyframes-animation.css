@@ -79,6 +79,7 @@ body {
   background: slategray;
   text-align: center;
   margin-block: 2rem;
+  align-content: center;
 }
 
 /* Fade 애니메이션 */
@@ -110,7 +111,6 @@ body {
   width: 120px;
   aspect-ratio: 1;
   border-radius: 50%;
-  align-content: center;
   background: conic-gradient(var(--dark-blue), teal, pink, var(--dark-blue));
   animation: spin 3s infinite linear;
   animation-play-state: paused;
@@ -130,6 +130,44 @@ body {
 
 /* Glow 애니메이션 */
 .glow .target-animation {
-  animation: glow 1s infinite linear alternate;
+  border-color: #6f6;
+  box-shadow:
+    0 0 20px rgba(0, 255, 0, 0.6),
+    inset 0 0 10px rgba(0, 255, 0, 0.4),
+    0 2px 0 #000;
+  animation: glow 1s infinite ease-in alternate;
   animation-play-state: paused;
+}
+
+/* CSS 변수를 활용한 애니메이션 */
+.rotate .target-animation {
+  --rotation: 0deg;
+
+  inline-size: 120px;
+  aspect-ratio: 1;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    translate: -50% -50%;
+    /* background: conic-gradient(from var(--rotation), red, yellow, blue, red); */
+    background: conic-gradient(from var(--rotation), transparent 0% 10%, red 20% 30%, transparent 40% 100%);
+    z-index: -1;
+    border-radius: 0.5rem;
+    padding: 1px;
+    inline-size: 100%;
+    block-size: 100%;
+    box-sizing: content-box;
+
+    animation: rotate 1s infinite linear;
+    animation-play-state: paused;
+  }
+
+  &::before {
+    filter: blur(0.5rem);
+  }
 }
