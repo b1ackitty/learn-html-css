@@ -3,41 +3,50 @@ body {
   margin: 50px;
 }
 
-.range-control {
-  margin-bottom: 20px;
-}
-
-.wrapper {
-  border: 1px solid red;
-  padding: 10px;
+.card-wrapper {
   container-type: inline-size;
 
-  .bootcamp {
+  .card {
+    padding: 20px;
+    background: whitesmoke;
+    border: 1px solid lightgray;
+    border-radius: 2px;
     display: flex;
     flex-flow: column nowrap;
+    gap: 20px;
 
-    @container (width > 600px) {
+    @container (width >= 480px) {
       flex-direction: row;
-
-      div {
-        font-size: 2em;
-        color: white;
-      }
     }
 
-    div {
-      block-size: 200px;
+    img {
+      inline-size: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+    }
+
+    figcaption {
       text-align: center;
-      align-content: center;
-      font-weight: 700;
+      font-style: italic;
+      margin-block-start: 8px;
+      font-weight: 600;
     }
 
-    .like {
-      background: green;
+    p {
+      line-height: 1.5;
+      text-align: justify;
+      color: gray;
     }
+  }
+}
 
-    .lion {
-      background: orange;
-    }
+/* 그리드 레이아웃 */
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+
+  .card-wrapper:nth-child(n + 5) {
+    grid-column: span 2;
   }
 }
