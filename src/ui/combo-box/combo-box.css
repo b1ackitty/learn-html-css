@@ -1,0 +1,85 @@
+/* 콤보 박스 */
+body {
+  margin: 50px;
+}
+
+/* inline-grid를 활용한 combo box UI - 시도 */
+/* .combo-box {
+  border: 1px solid #757575;
+  border-radius: 2px;
+  display: inline-grid;
+  grid-template-columns: 16px 1fr 16px;
+  column-gap: 8px;
+  justify-items: center;
+  align-items: center;
+
+  svg {
+    inline-size: 16px;
+    aspect-ratio: 1;
+    grid-area: 1;
+  }
+
+  svg:last-child {
+    grid-area: 1 / 3;
+  }
+
+  .form-combo {
+    font-size: 16px;
+    display: grid;
+    grid-column: 1 / span 3;
+    grid-row: 1;
+
+    select {
+      border: 0;
+      padding: 12px 38px;
+      appearance: none;
+      text-align: center;
+    }
+  }
+} */
+
+/* inline-grid를 활용한 combo box UI - 시도 */
+.combo-box {
+  display: inline-grid;
+  grid-template-columns: auto;
+  align-items: center;
+  padding: 4px 12px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  /* isolation: isolate; */
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px yellowgreen;
+  }
+
+  .global,
+  .arrow {
+    /* z-index: -1; */
+    pointer-events: none;
+  }
+
+  .global,
+  .form-combo,
+  .arrow {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  .global {
+    justify-self: start;
+  }
+
+  .form-combo {
+    select {
+      outline: 0 none;
+      appearance: none;
+      border: 0;
+      background: transparent;
+      text-align: center;
+      padding: 4px 20px;
+    }
+  }
+
+  .arrow {
+    justify-self: end;
+  }
+}
