@@ -11,14 +11,23 @@
     padding: 1em;
     color: white;
   }
+
+  p {
+    border: medium solid purple;
+  }
 }
 
 @layer state {
+  body {
+    background-color: pink !important;
+  }
+
   .alert {
-    background-color: purple;
+    background-color: brown;
     padding: 1em;
     color: white;
   }
+
   p {
     border: medium solid red;
   }
@@ -26,5 +35,5 @@
 
 body {
   margin: 50px;
-  background-color: limegreen;
+  background-color: limegreen !important;
 }
