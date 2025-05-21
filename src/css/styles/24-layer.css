@@ -1,0 +1,30 @@
+/* @layer 규칙 */
+@layer module, state;
+
+@layer module {
+  body {
+    background: yellow !important;
+  }
+
+  .alert {
+    background-color: darkblue;
+    padding: 1em;
+    color: white;
+  }
+}
+
+@layer state {
+  .alert {
+    background-color: purple;
+    padding: 1em;
+    color: white;
+  }
+  p {
+    border: medium solid red;
+  }
+}
+
+body {
+  margin: 50px;
+  background-color: limegreen;
+}
